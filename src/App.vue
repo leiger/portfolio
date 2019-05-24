@@ -1,29 +1,79 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <Header class="header"/>
+    <div class="container">
+      <router-view/>
+      <transition
+        enter-active-class="animated bounceInRight"
+        leave-active-class="animated bounceOutRight"
+      >
+        <Menu class="menu" v-if="menuState"/>
+      </transition>
+      <MenuSwitch class="menuSwitch"/>
     </div>
-    <router-view/>
+    <footer/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import Header from "@/components/Header.vue";
+import Menu from "@/components/Menu";
+import MenuSwitch from "@/components/MenuSwitch";
+import wow from "wow.js";
+
+new wow().init();
+export default {
+  components: {
+    Header,
+    Menu,
+    MenuSwitch
+  },
+  computed: {
+    menuState() {
+      return this.$store.state.menuState;
     }
   }
+};
+</script>
+
+<style lang="scss" scoped>
+@import "assets/variables.scss";
+
+#app {
+  padding: 0 $header-height/2;
+  min-width: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.header {
+  position: relative;
+  left: -$header-height/2;
+  top: 0;
+}
+.container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  margin-top: -$header-height/2;
+
+  .menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .menuSwitch {
+    position: absolute;
+    right: -22px;
+    top: 25%;
+    margin: -22px 0 0 0;
+  }
+}
+
+footer {
+  width: 100%;
+  height: $header-height/2;
 }
 </style>

@@ -1,0 +1,23 @@
+// personal variables
+body {
+  margin: 0;
+}
+
+a,
+button {
+  transition: .5s all;
+  cursor: pointer;
+}
+
+$header-height: 76px;
+$links-height: 76px;
+$menu-title-height: 76px;
+
+$icon-bg-color: rgba(255, 255, 255, 0.4);
+$phone-bg-color: rgba(255, 255, 255, 0.7);
+
+$menu-color: #2a2d3e;
+$menu-title-bg-color: #f1d661;
+$menu-title-color: #1c1b20;
+
+$menu-mix-color: mix($phone-bg-color, $menu-title-bg-color);

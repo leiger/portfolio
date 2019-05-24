@@ -45,9 +45,7 @@ export default {
     handleMore() {
       this.$store.commit("handleMenuState", false);
       this.pageStatus = false;
-      setTimeout(() => {
-        this.$router.push("/works");
-      }, 1000);
+      this.$router.push("/works");
     }
   }
 };
