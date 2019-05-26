@@ -33,16 +33,17 @@ export default {
 
 .desc {
   position: absolute;
-  left: $header-height * 2;
+  left: $header-height*1.5;
 
   .typer {
     display: block;
     margin: 0 0 15px;
 
     .custom.char {
-      color: #f8f8f8;
-      text-decoration: underline #000 dotted;
-      font-size: 54px;
+      color: $main-font-color;
+      font-family: $rest-font;
+      // text-decoration: underline #000 dotted;
+      font-size: 60px;
       font-weight: bold;
       text-shadow: 4px -4px 5px rgba(255, 255, 255, 0.2);
     }

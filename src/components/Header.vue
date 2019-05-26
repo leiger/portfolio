@@ -21,6 +21,7 @@ export default {
 
 header {
   height: $header-height;
+  width: $header-height;
   z-index: 10;
 }
 

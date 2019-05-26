@@ -13,15 +13,20 @@
           </li>
         </ul>
       </div>
-      <div class="menuTitle">Menu</div>
+      <div class="contact">
+        <div class="icons wow slideInRight" data-wow-delay="0.1s">
+          <i class="far fa-envelope"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-github"></i>
+        </div>
+        <p class="phone wow slideInRight" data-wow-delay="0.2s">(+1) 226-977-4697</p>
+        <p class="email wow slideInRight" data-wow-delay="0.3s">leiger2017@outlook.com</p>
+      </div>
     </div>
-    <Contacts></Contacts>
   </div>
 </template>
 
 <script>
-import Contacts from "./Contacts";
-
 export default {
   data() {
     return {
@@ -33,19 +38,16 @@ export default {
         },
         {
           link: "/works",
-          name: "works",
+          name: "Works",
           active: false
         },
         {
           link: "/about",
-          name: "about",
+          name: "About",
           active: false
         }
       ]
     };
-  },
-  components: {
-    Contacts
   }
 };
 </script>
@@ -58,17 +60,21 @@ export default {
   top: 0;
   width: 50%;
   height: 50%;
-  background-color: $menu-color;
+  background-color: #f8f8f8;
+  // background-color: #efeae2;
+  // background-image: linear-gradient(#ede4e0 1px, transparent 0),
+  //   linear-gradient(90deg, #ede4e0 1px, transparent 0);
+  // background-size: 10px 10px;
   display: flex;
   flex-direction: column;
 
   .menuBox {
     flex: 1;
     display: flex;
+    padding: 80px 50px;
   }
   .menuItemsBox {
-    padding: 50px;
-    flex: 1;
+    flex: 2;
 
     ul {
       margin: 0;
@@ -79,15 +85,11 @@ export default {
       list-style: none;
     }
   }
-  .menuTitle {
-    width: $menu-title-height;
-    background-color: $menu-title-bg-color;
-    writing-mode: vertical-rl;
-    text-align: center;
-    line-height: $menu-title-height;
-    color: $menu-title-color;
-    font-size: 40px;
-    font-weight: 600;
+  .contact {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 }
 
@@ -102,19 +104,41 @@ li {
     position: relative;
     line-height: 1.1;
     font-weight: bold;
-    color: #f8f8f8;
+    color: #47464c;
     font-size: 30px;
     line-height: 33px;
     text-decoration: none;
+    font-family: $sub-font;
   }
   .menuItem::after {
     position: absolute;
     content: "";
-    width: 120%;
+    width: 130%;
     height: 15px;
     top: 9px;
-    left: -10%;
-    background-color: rgba(255, 255, 255, 0.5);
+    left: -14%;
+    background-color: rgba(65, 74, 107, 0.6);
+  }
+}
+
+.contact {
+  font-family: $rest-font;
+  color: #aaa;
+  .icons {
+    padding: 5px 0;
+    cursor: pointer;
+
+    i {
+      padding-right: 20px;
+      transition: all 400ms ease-in-out;
+      &:hover {
+        color: #47464c;
+      }
+    }
+  }
+  p {
+    margin: 5px 0;
+    font-size: 12px;
   }
 }
 </style>

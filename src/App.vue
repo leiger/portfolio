@@ -4,8 +4,8 @@
     <div class="container">
       <router-view/>
       <transition
-        enter-active-class="animated bounceInRight"
-        leave-active-class="animated bounceOutRight"
+        enter-active-class="animated fadeInRight"
+        leave-active-class="animated fadeOutRight"
       >
         <Menu class="menu" v-if="menuState"/>
       </transition>

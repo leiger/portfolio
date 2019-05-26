@@ -1,6 +1,9 @@
 // personal variables
+@import "https://fonts.googleapis.com/css?family=Josefin+Sans|Nunito|Roboto:900&display=swap";
+
 body {
   margin: 0;
+  font-family: 'Nunito', sans-serif;
 }
 
 a,
@@ -8,6 +11,13 @@ button {
   transition: .5s all;
   cursor: pointer;
 }
+
+// font
+$main-font: 'Josefin Sans', sans-serif;
+$sub-font: 'Nunito', sans-serif;
+$rest-font: 'Josefin Sans', sans-serif;
+
+$main-font-color: #f7f7f7;
 
 $header-height: 76px;
 $links-height: 76px;
@@ -21,3 +31,21 @@ $menu-title-bg-color: #f1d661;
 $menu-title-color: #1c1b20;
 
 $menu-mix-color: mix($phone-bg-color, $menu-title-bg-color);
+
+$works-bg-left-color: #f7f7f7;
+$works-bg-right-color: #f7f7f7;
+$works-title-color: #1b1a1f;
+
+$home-left-bg-color:#414a6b;
+$home-right-bg-color: #f7f7f7;
+
+
+//dark bg 303030
+// dark line 464646
+// dark text f8f8f8
+
+//efeae2
+// ede4e0
+// 47464c
+
+//414a6b

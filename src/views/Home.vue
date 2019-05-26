@@ -4,7 +4,7 @@
       <transition
         appear
         enter-active-class="animated bounceInDown"
-        leave-active-class="animated hinge"
+        leave-active-class="animated bounceOutLeft"
       >
         <div v-if="pageStatus" class="left">
           <Intro/>
@@ -13,7 +13,7 @@
       <transition
         appear
         enter-active-class="animated bounceInUp"
-        leave-active-class="animated bounceOutDown"
+        leave-active-class="animated bounceOutRight"
       >
         <div v-if="pageStatus" class="right">
           <div class="texture"></div>
@@ -71,14 +71,17 @@ export default {
   position: relative;
   width: 50%;
   flex: 1;
-  background-color: #414a6b;
+  background-color: $home-left-bg-color;
   display: flex;
   align-items: center;
 }
 .right {
   width: 50%;
   flex: 1;
-  background-color: #f8f8f8;
+  background-color: #f7f7f7;
+  background-image: linear-gradient(hsla(0, 0%, 100%, 0.3) 1px, transparent 0),
+    linear-gradient(90deg, hsla(0, 0%, 100%, 0.3) 1px, transparent 0);
+  background-size: 10px 10px;
   position: relative;
 }
 
