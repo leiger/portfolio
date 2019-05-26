@@ -75,7 +75,7 @@ a {
     height: 100%;
     width: 100%;
     transform: translateY(120%) skewY(20deg);
-    transition: all 500ms ease-in-out 50ms;
+    transition: all 500ms cubic-bezier(0.65, 0.05, 0.36, 1) 50ms;
 
     p {
       font-family: $rest-font;
@@ -89,12 +89,12 @@ a {
     position: absolute;
     left: 30px;
     bottom: 30px;
-    transition: all 500ms ease-in-out 50ms;
+    transition: all 500ms cubic-bezier(0.65, 0.05, 0.36, 1) 50ms;
 
     .type {
       font-family: $rest-font;
       margin: 10px 0;
-      transition: all 500ms ease-in-out 0;
+      transition: all 500ms cubic-bezier(0.65, 0.05, 0.36, 1) 0;
     }
     .title {
       display: inline-block;
@@ -103,7 +103,7 @@ a {
       font-weight: 900;
       z-index: 10;
       margin: 0;
-      transition: all 200ms ease-in-out 0;
+      transition: all 200ms cubic-bezier(0.65, 0.05, 0.36, 1) 0;
     }
   }
 
@@ -133,7 +133,7 @@ a {
   right: 30px;
   top: 30px;
   color: #f7f7f7;
-  transition: all 500ms ease-in-out 50ms;
+  transition: all 500ms cubic-bezier(0.65, 0.05, 0.36, 1) 50ms;
 
   &:hover {
     color: #aaa;

@@ -4,6 +4,7 @@ import router from './router'
 import vuex from './vuex';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'animate.css/animate.min.css';
+import './assets/tech-font/iconfont.css'
 import './assets/variables.scss';
 
 Vue.config.productionTip = false

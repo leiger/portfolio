@@ -1,5 +1,5 @@
 <template>
-  <div class="desc">
+  <div class="intro">
     <vue-typer class="typer" :repeat="0" :text="text1" :pre-type-delay="1000" :type-delay="120"></vue-typer>
     <vue-typer
       class="typer"
@@ -31,7 +31,7 @@ export default {
 <style lang="scss">
 @import "../assets/variables.scss";
 
-.desc {
+.intro {
   position: absolute;
   left: $header-height*1.5;
 
@@ -45,7 +45,7 @@ export default {
       // text-decoration: underline #000 dotted;
       font-size: 60px;
       font-weight: bold;
-      text-shadow: 4px -4px 5px rgba(255, 255, 255, 0.2);
+      // text-shadow: 4px -4px 5px rgba(255, 255, 255, 0.2);
     }
   }
 }

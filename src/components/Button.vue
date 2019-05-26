@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <button @click="handleClick" class="btn">
-      <i :class="iconName"></i>
-    </button>
-  </div>
+  <button @click="handleClick" class="btn">
+    <i :class="iconName"></i>
+  </button>
 </template>
 
 <script>
 export default {
-  props: ['iconName'],
+  props: ["iconName"],
   methods: {
     handleClick() {
       this.$emit("on-click");
@@ -30,5 +28,16 @@ export default {
   cursor: pointer;
   outline: none;
   z-index: 20;
+
+  &:hover {
+    i {
+      font-size: 16px;
+    }
+  }
+  i {
+    font-size: 14px;
+    transition: all 400ms ease-in-out;
+    color: #333;
+  }
 }
 </style>

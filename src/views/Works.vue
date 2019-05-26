@@ -4,9 +4,8 @@
       <transition
         appear
         enter-active-class="animated fadeInLeft"
-        leave-active-class="animated hinge"
       >
-        <div v-if="pageStatus" class="left">
+        <div class="left">
           <vue-typer
             class="typer"
             :repeat="0"
@@ -28,13 +27,11 @@
       <transition
         appear
         enter-active-class="animated fadeIn"
-        leave-active-class="animated bounceOutDown"
       >
-        <div v-if="pageStatus" class="right">
+        <div class="right">
           <div class="column1">
             <Work
               class="blog"
-              pageStatus="pageStatus"
               :colorInfo="colorInfos[0]"
               :textInfo="textInfos[0]"
               :animateInfo="animateInfos[0]"
@@ -42,7 +39,6 @@
             />
             <Work
               class="ruishen"
-              pageStatus="pageStatus"
               :colorInfo="colorInfos[1]"
               :textInfo="textInfos[1]"
               :animateInfo="animateInfos[1]"
@@ -57,7 +53,6 @@
             <div class="row2">
               <Work
                 class="joyReserve"
-                pageStatus="pageStatus"
                 :colorInfo="colorInfos[2]"
                 :textInfo="textInfos[2]"
                 :animateInfo="animateInfos[2]"
@@ -65,7 +60,6 @@
               ></Work>
               <Work
                 class="vmall"
-                pageStatus="pageStatus"
                 :colorInfo="colorInfos[3]"
                 :textInfo="textInfos[3]"
                 :animateInfo="animateInfos[3]"
@@ -87,7 +81,6 @@ export default {
   name: "home",
   data() {
     return {
-      pageStatus: true,
       colorInfos: [
         {
           bgColor: "#303030",

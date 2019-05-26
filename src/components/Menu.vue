@@ -2,6 +2,7 @@
   <div class="menu">
     <div class="menuBox">
       <div class="menuItemsBox">
+        <div class="title wow slideInDown">Menu</div>
         <ul>
           <li
             class="icon wow slideInRight"
@@ -9,7 +10,10 @@
             :key="item.name"
             :data-wow-delay="(index * 0.1)+'s'"
           >
-            <router-link :class="{menuItem: item.active}" :to="item.link">{{item.name}}</router-link>
+            <a
+              @click="handleMenuChange(index)"
+              :class="{menuItem: item.link === route}"
+            >{{item.name}}</a>
           </li>
         </ul>
       </div>
@@ -48,6 +52,19 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    route() {
+      return this.$route.path;
+    }
+  },
+  methods: {
+    handleMenuChange(index) {
+      this.$router.push(this.menuItems[index].link);
+      setTimeout(() => {
+        this.$store.commit("handleMenuState", false);
+      }, 200);
+    }
   }
 };
 </script>
@@ -75,7 +92,17 @@ export default {
   }
   .menuItemsBox {
     flex: 2;
+    position: relative;
 
+    .title {
+      position: absolute;
+      // transform: rotate(-90deg) translateX(-100%);
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      font-size: 12px;
+      left: 0;
+      top: 0;
+    }
     ul {
       margin: 0;
       padding: 0;
@@ -109,15 +136,29 @@ li {
     line-height: 33px;
     text-decoration: none;
     font-family: $sub-font;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 110%;
+      height: 13px;
+      top: 10px;
+      left: -5%;
+      background-color: rgba(65, 74, 107, 0.6);
+
+      transform-origin: center left;
+      transform: scaleX(0);
+      transition: all 400ms ease-in-out;
+    }
+
+    &:hover {
+      &::before {
+        transform: scaleX(1);
+      }
+    }
   }
-  .menuItem::after {
-    position: absolute;
-    content: "";
-    width: 130%;
-    height: 15px;
-    top: 9px;
-    left: -14%;
-    background-color: rgba(65, 74, 107, 0.6);
+  .menuItem::before {
+    transform: scaleX(1);
   }
 }
 

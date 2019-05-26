@@ -56,13 +56,13 @@ h1 {
   position: absolute;
   bottom: 50%;
   margin: -14px;
-  transition: all 400ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 .mask {
   left: 200%;
   position: absolute;
   top: 50%;
   margin: -10px;
-  transition: all 400ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 </style>

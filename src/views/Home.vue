@@ -20,8 +20,15 @@
         </div>
       </transition>
     </div>
-
-    <Button @on-click="handleMore" class="more" iconName="fas fa-chevron-down"/>
+    <transition
+      appear
+      enter-active-class="animated rotateIn"
+      leave-active-class="animated rotateOut"
+    >
+      <div class="more" v-if="pageStatus">
+        <Button @on-click="handleMore" iconName="fas fa-chevron-down"/>
+      </div>
+    </transition>
   </div>
 </template>
 

@@ -1,6 +1,17 @@
 <template>
-  <div>
-    <Button @on-click="handleMenu" :iconName="menuState? 'fas fa-times': 'fas fa-bars'"></Button>
+  <div class="switch">
+    <transition
+      mode="out-in"
+      enter-active-class="animated zoomIn"
+      leave-active-class="animated zoomOut"
+      :duration="800"
+    >
+      <Button
+        :key="menuState"
+        @on-click="handleMenu"
+        :iconName="menuState? 'fas fa-times': 'fas fa-bars'"
+      ></Button>
+    </transition>
   </div>
 </template>
 
@@ -28,6 +39,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../assets/variables.scss";
+
 </style>
