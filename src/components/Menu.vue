@@ -19,9 +19,15 @@
       </div>
       <div class="contact">
         <div class="icons wow slideInRight" data-wow-delay="0.1s">
-          <i class="far fa-envelope"></i>
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-github"></i>
+          <a href="Mailto:leiger2017@outlook.com">
+            <i class="far fa-envelope"></i>
+          </a>
+          <a target="_blank" href="https://github.com/leiger">
+            <i class="fab fa-github"></i>
+          </a>
+          <a target="_blank" href="https://www.instagram.com/leiger_/">
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
         <p class="phone wow slideInRight" data-wow-delay="0.2s">(+1) 226-977-4697</p>
         <p class="email wow slideInRight" data-wow-delay="0.3s">leiger2017@outlook.com</p>
@@ -148,7 +154,7 @@ li {
 
       transform-origin: center left;
       transform: scaleX(0);
-      transition: all 400ms ease-in-out;
+      transition: all 200ms ease-in-out;
     }
 
     &:hover {
@@ -164,7 +170,9 @@ li {
 
 .contact {
   font-family: $rest-font;
-  color: #aaa;
+  a {
+    color: #aaa;
+  }
   .icons {
     padding: 5px 0;
     cursor: pointer;

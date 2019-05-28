@@ -10,6 +10,7 @@
         :key="menuState"
         @on-click="handleMenu"
         :iconName="menuState? 'fas fa-times': 'fas fa-bars'"
+        class="btn"
       ></Button>
     </transition>
   </div>
@@ -41,5 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/variables.scss";
-
+.btn {
+  border-left: 1px solid #eaeaea;
+}
 </style>

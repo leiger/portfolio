@@ -3,45 +3,46 @@
     <transition
       appear
       enter-active-class="animated zoomInDown"
-      leave-active-class="animated zoomOutUp"
+      leave-active-class="animated fadeOut"
       @afterLeave="handleLeave"
     >
       <div v-if="pageStatus" class="container">
         <div class="left">
-          <img
-            class="wow bounceIn"
-            data-wow-delay="1s"
-            width="50"
-            src="../assets/images/doujiu/doujiu.jpg"
-            alt="Ruishen"
-          >
-          <vue-typer
-            class="typer"
-            :repeat="0"
-            text="Ruishen Techonology"
-            :pre-type-delay="1000"
-            :type-delay="120"
-          ></vue-typer>
-          <div class="type">Open Source, New E-commerce site</div>
-          <div class="details">
-            <ul>
-              <li>
-                Position:
-                <span>Co-founder</span>
-              </li>
-              <li>
-                Time:
-                <span>Sep 2015 - May 2016</span>
-              </li>
-            </ul>
+          <div class="content">
+            <vue-typer
+              class="typer"
+              :repeat="0"
+              :text="'Ruishen \nTechonology'"
+              :pre-type-delay="1000"
+              :type-delay="120"
+            ></vue-typer>
+            <div class="type wow fadeIn" data-wow-delay="0.6s">The birth of dou9.</div>
+            <div class="details wow fadeIn" data-wow-delay="0.8s">
+              <ul>
+                <li>
+                  <span>Position:</span>
+                  <span>Co-founder</span>
+                </li>
+                <li>
+                  <span>Time:</span>
+                  <span>Sep 2015 - May 2016</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
         <div class="right">
           <div class="content">
-            <div class="desc"></div>
+            <div class="desc">
+              <div class="detail wow fadeIn" data-wow-delay="1s">
+                <h3>About dou9.</h3>
+                <p>This is my first startup project. At that time, our goal was to sell a local snack food online. <br>And below is our product.</p>
+                <p>dou9 was born as our brand character as well as our mascot.</p>
+              </div>
+            </div>
             <div class="carouselBox">
-              <div class="carousel wow fadeIn" data-wow-delay="0.6s">
+              <div class="carousel wow fadeIn" data-wow-delay="1.2s">
                 <div class="imgBox">
                   <transition
                     appear
@@ -77,7 +78,6 @@
         </a>
         <img class="img1 wow rotateIn" data-wow-delay="1s" :src="images[0]" alt="doujiu">
         <img class="img2 wow bounceInLeft" data-wow-delay="1.2s" :src="images[1]" alt="doujiu">
-        <img class="img3 wow rotateIn" data-wow-delay="1.4s" :src="images[2]" alt="doujiu">
         <img class="img4 wow bounceInRight" data-wow-delay="1.6s" :src="images[3]" alt="doujiu">
       </div>
     </transition>
@@ -101,7 +101,7 @@ export default {
   data() {
     return {
       images: [img1, img2, img3, img4],
-      products: [product1, product2, product3, product4, product5],
+      products: [product4, product2, product3, product1, product5],
       currentNum: 1,
       totalNum: 5,
       pageStatus: true,
@@ -164,7 +164,6 @@ export default {
       display: flex;
       align-items: center;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
     }
 
@@ -216,51 +215,54 @@ export default {
 }
 
 #ruishen {
-  .type {
-    font-family: $rest-font;
-    color: #141414;
-    font-weight: 900;
-  }
-  img {
-    width: 80px;
-    padding: 10px;
-  }
-  .typer {
-    display: block;
-    z-index: 10;
-    height: 70px;
-    line-height: 70px;
-
-    .custom.char {
-      color: #f7f7f7;
-      font-size: 40px;
+  .left .content {
+    .type {
+      font-family: $rest-font;
+      color: #141414;
       font-weight: 900;
-      font-family: $main-font;
+      font-size: 24px;
     }
-  }
-  .details {
-    color: $works-title-color;
-    font-size: 14px;
-    font-family: $sub-font;
-    font-weight: 400;
+    .typer {
+      display: block;
+      z-index: 10;
+      height: 200px;
+      width: 400px;
 
-    ul {
-      padding: 0;
-      margin: 20px 0;
-      list-style: none;
-      li {
-        padding: 5px 0;
+      .custom.char {
+        color: #f7f7f7;
+        font-size: 60px;
+        font-weight: 900;
+        font-family: $main-font;
+      }
+    }
+    .details {
+      color: $works-title-color;
+      font-size: 14px;
+      font-family: $sub-font;
+      font-weight: 400;
 
-        span {
-          display: inline-block;
-          padding-left: 5px;
+      ul {
+        padding: 0;
+        margin: 20px 0;
+        list-style: none;
+        li {
+          padding: 5px 0;
+
+          span {
+            display: inline-block;
+            padding-left: 5px;
+
+            &:first-child {
+              color: #cba411;
+            }
+          }
         }
       }
     }
   }
 }
 #ruishen .right {
-  flex: 2;
+  flex: 1;
   position: relative;
   display: flex;
 
@@ -271,6 +273,17 @@ export default {
 
     .desc {
       flex: 1;
+
+      .detail {
+        padding: 10%;
+
+        h3 {
+          color: #cba411;
+        }
+        p {
+          color: #f7f7f7;
+        }
+      }
     }
     .carouselBox {
       flex: 1;

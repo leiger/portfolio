@@ -3,54 +3,56 @@
     <transition
       appear
       enter-active-class="animated zoomInDown"
-      leave-active-class="animated zoomOutUp"
+      leave-active-class="animated fadeOut"
       @afterLeave="handleLeave"
     >
       <div v-if="pageStatus" class="container">
         <div class="left">
-          <img width="50" src="../assets/images/vmall.png" alt="Vmall">
-          <vue-typer
-            class="typer"
-            :repeat="0"
-            text="Vmall"
-            :pre-type-delay="1000"
-            :type-delay="120"
-          ></vue-typer>
-          <div class="type">Open Source, New E-commerce site</div>
-          <div class="details">
-            <ul>
-              <li>
-                Type:
-                <span>Personal Open Source Project</span>
-              </li>
-              <li>
-                Time:
-                <span>Oct 2017 - Present</span>
-              </li>
-              <li>
-                Primary Tech:
-                <span>Vue.js, Express, MongoDB</span>
-              </li>
-              <li>
-                Site (old):
-                <span>
-                  <a>https://vmall1.leiger.tech</a>
-                </span>
-              </li>
-              <li>
-                Site (new):
-                <span>
-                  <a>https://vmall2.leiger.tech</a>
-                </span>
-              </li>
-            </ul>
+          <div class="content">
+            <!-- <img width="50" src="../assets/images/vmall.png" alt="Vmall"> -->
+            <vue-typer
+              class="typer"
+              :repeat="0"
+              text="Vmall"
+              :pre-type-delay="1000"
+              :type-delay="120"
+            ></vue-typer>
+            <div class="type wow fadeIn" data-wow-delay="0.6s">Open Source, New E-commerce site</div>
+            <div class="details wow fadeIn" data-wow-delay="0.8s">
+              <ul>
+                <li>
+                  Type:
+                  <span>Personal Project</span>
+                </li>
+                <li>
+                  Time:
+                  <span>Oct 2017 - Present</span>
+                </li>
+                <li>
+                  Primary Tech:
+                  <span>Vue.js, Express, MongoDB</span>
+                </li>
+                <li>
+                  Site (new):
+                  <span>
+                    <a target="_blank" href="https://vmall.leiger.tech">https://vmall.leiger.tech</a>
+                  </span>
+                </li>
+                <li>
+                  Site (old):
+                  <span>
+                    <a target="_blank" href="https://vmall1.leiger.tech">https://vmall1.leiger.tech</a>
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
         <div class="right">
           <div class="content">
             <div class="row1">
-              <div class="vmall1">
+              <div class="vmall1 wow fadeIn" data-wow-delay="1s">
                 <h3>Vmall1</h3>
                 <ul>
                   <li>Full Stack Project</li>
@@ -61,7 +63,7 @@
                   <li>...</li>
                 </ul>
               </div>
-              <div class="vmall2">
+              <div class="vmall2 wow fadeIn" data-wow-delay="1.2s">
                 <h3>Vmall2</h3>
                 <ul>
                   <li>Based on Vmall1</li>
@@ -156,50 +158,59 @@ export default {
 }
 
 #vmall {
-  .type {
-    font-family: $rest-font;
-    color: #f4d242;
-    font-weight: 900;
-  }
-  img {
-    padding: 10px;
-  }
-  .typer {
-    display: block;
-    z-index: 10;
-    height: 70px;
-
-    .custom.char {
-      color: #f7f7f7;
-      font-size: 40px;
+  .left .content {
+    margin-bottom: 50px;
+    .type {
+      font-family: $rest-font;
+      color: #f4d242;
       font-weight: 900;
-      font-family: $main-font;
+      font-size: 24px;
     }
-  }
-  .details {
-    font-size: 14px;
-    font-family: $sub-font;
-    font-weight: 400;
+    img {
+    }
+    .typer {
+      display: block;
+      z-index: 10;
+      height: 120px;
 
-    ul {
-      padding: 0;
-      margin: 20px 0;
-      list-style: none;
-      li {
-        padding: 5px 0;
-        color: #ddd;
+      .custom.char {
+        color: #f7f7f7;
+        font-size: 80px;
+        font-weight: 900;
+        font-family: $main-font;
+      }
+    }
+    .details {
+      margin-top: 50px;
+      font-size: 14px;
+      font-family: $sub-font;
+      font-weight: 400;
 
-        span {
-          display: inline-block;
-          padding-left: 5px;
-          color: #f7f7f7;
+      ul {
+        padding: 0;
+        margin: 20px 0;
+        list-style: none;
+        li {
+          padding: 5px 0;
+          color: #606dab;
+
+          span {
+            display: inline-block;
+            padding-left: 5px;
+            color: #f7f7f7;
+
+            a {
+              text-decoration: underline;
+              color: #f7f7f7;
+            }
+          }
         }
       }
     }
   }
 }
 #vmall .right {
-  flex: 2;
+  flex: 1;
   // background-color: $home-right-bg-color;
   background: #414a6b;
 
@@ -240,9 +251,6 @@ export default {
       flex: 1;
       display: flex;
       background-color: #414a6b;
-      // background-image: linear-gradient(#ede4e0 1px, transparent 0),
-      //   linear-gradient(90deg, #ede4e0 1px, transparent 0);
-      // background-size: 10px 10px;
       .imgBox {
         flex: 1;
         background-image: url("../assets/images/vmall/vmall_bg.png");

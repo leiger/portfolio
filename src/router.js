@@ -3,14 +3,14 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Works from './views/Works.vue'
 import JoyReserve from './views/JoyReserve.vue'
-import Blog from './views/Blog.vue'
+import Portfolio from './views/Portfolio.vue'
 import Vmall from './views/Vmall.vue'
 import Ruishen from './views/Ruishen.vue'
 
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   base: process.env.BASE_URL,
   routes: [
     {
@@ -29,9 +29,9 @@ export default new Router({
       component: JoyReserve
     },
     {
-      path: '/blog',
-      name: 'blog',
-      component: Blog
+      path: '/portfolio',
+      name: 'portfolio',
+      component: Portfolio
     },
     {
       path: '/vmall',

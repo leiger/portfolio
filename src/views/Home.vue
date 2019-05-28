@@ -26,7 +26,7 @@
       leave-active-class="animated rotateOut"
     >
       <div class="more" v-if="pageStatus">
-        <Button @on-click="handleMore" iconName="fas fa-chevron-down"/>
+        <Button class="btn" @on-click="handleMore" iconName="fas fa-chevron-down"/>
       </div>
     </transition>
   </div>
@@ -97,6 +97,10 @@ export default {
   left: 50%;
   bottom: 0;
   margin: -22px;
+}
+
+.btn {
+  border-top: 1px solid #eaeaea;
 }
 </style>
 

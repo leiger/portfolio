@@ -2,15 +2,14 @@
   <transition
     appear
     :enter-active-class="animateInfo.enter"
-    leave-active-class="hinge"
-    mode="out-in"
+    leave-active-class="animated zoomOutUp"
     @after-leave="afterLeave"
   >
-    <a v-if="pageStatus" class="workBox" :style="styleBgObject">
+    <a v-if="pageStatus" @click.prevent="handleSeeMore" class="workBox" :style="styleBgObject">
       <div class="id" :style="styleTextObject">{{textInfo.id}}</div>
       <div class="mask" :style="styleMaskObject">
         <p>{{textInfo.detail}}</p>
-        <i @click.prevent="handleSeeMore" class="more fas fa-arrow-right"></i>
+        <i class="more fas fa-arrow-up"></i>
       </div>
       <div class="content" :style="styleTextObject">
         <p class="type">{{textInfo.type}}</p>
@@ -37,7 +36,7 @@ export default {
         color: this.colorInfo.textColor
       },
       styleMaskObject: {
-        'background-color': this.colorInfo.maskColor
+        "background-color": this.colorInfo.maskColor
       }
     };
   },
@@ -48,6 +47,10 @@ export default {
     },
     afterLeave() {
       this.$router.push(this.linkInfo.linkTo);
+    },
+    beforeEnter() {
+      setTimeout(() => {
+      }, this.animateInfo.delay);
     }
   }
 };
@@ -107,9 +110,9 @@ a {
     }
   }
 
-  &:hover {
+  &:hover, &:active {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -20px, 0);
 
     .mask {
       top: 0;
@@ -123,7 +126,7 @@ a {
         text-decoration: underline;
       }
       .type {
-        color: #f7f7f7;
+
       }
     }
   }
@@ -133,11 +136,5 @@ a {
   right: 30px;
   top: 30px;
   color: #f7f7f7;
-  transition: all 500ms cubic-bezier(0.65, 0.05, 0.36, 1) 50ms;
-
-  &:hover {
-    color: #aaa;
-    font-size: 18px;
-  }
 }
 </style>

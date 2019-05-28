@@ -1,5 +1,5 @@
 // personal variables
-@import "https://fonts.googleapis.com/css?family=Josefin+Sans|Nunito|Roboto:900&display=swap";
+@import "https://fonts.googleapis.com/css?family=Josefin+Sans|Nunito|Permanent+Marker&display=swap";
 
 body {
   margin: 0;
@@ -13,7 +13,7 @@ button {
 }
 
 // font
-$main-font: 'Josefin Sans', sans-serif;
+$main-font: 'Permanent Marker', cursive;
 $sub-font: 'Nunito', sans-serif;
 $rest-font: 'Josefin Sans', sans-serif;
 
@@ -27,10 +27,9 @@ $icon-bg-color: rgba(255, 255, 255, 0.4);
 $phone-bg-color: rgba(255, 255, 255, 0.7);
 
 $menu-color: #2a2d3e;
-$menu-title-bg-color: #f1d661;
 $menu-title-color: #1c1b20;
 
-$menu-mix-color: mix($phone-bg-color, $menu-title-bg-color);
+// $menu-mix-color: mix($phone-bg-color, $menu-title-bg-color);
 
 $works-bg-left-color: #f7f7f7;
 $works-bg-right-color: #f7f7f7;

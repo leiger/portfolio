@@ -2,63 +2,58 @@
   <div id="joyReserve">
     <transition
       appear
-      enter-active-class="animated zoomInRight"
-      leave-active-class="animated zoomOutUp"
+      enter-active-class="animated zoomInLeft"
+      leave-active-class="animated fadeOut"
       @afterLeave="handleLeave"
     >
       <div v-if="pageStatus" class="container">
         <div class="left">
-          <img
-            class="wow bounceIn"
-            data-wow-delay="1s"
-            width="50"
-            src="../assets/images/joyReserve.png"
-            alt="JoyReserve"
-          >
-          <vue-typer
-            class="typer"
-            :repeat="0"
-            text="JoyReserve"
-            :pre-type-delay="1000"
-            :type-delay="120"
-          ></vue-typer>
-          <div class="type">A Convenient Reservation System.</div>
-          <div class="details">
-            <ul>
-              <li>
-                Position:
-                <span>Co-founder</span>
-              </li>
-              <li>
-                Time:
-                <span>Jun 2016 - Sep 2017</span>
-              </li>
-              <li>
-                Website:
-                <span>
-                  <a>https://joyreserve.com</a>
-                </span>
-              </li>
-            </ul>
+          <div class="content">
+            <vue-typer
+              class="typer"
+              :repeat="0"
+              text="JoyReserve"
+              :pre-type-delay="1000"
+              :type-delay="120"
+            ></vue-typer>
+            <div class="type wow fadeIn" data-wow-delay="1.0s">A Convenient Reservation System.</div>
+            <div class="details wow fadeIn" data-wow-delay="1.2s">
+              <ul>
+                <li>
+                  <span>Position:</span>
+                  <span>Co-founder</span>
+                </li>
+                <li>
+                  <span>Time:</span>
+                  <span>Jun 2016 - Sep 2017</span>
+                </li>
+                <li>
+                  <span>Website:</span>
+                  <span>
+                    <a target="_blank" href="https://www.joyreserve.com">https://www.joyreserve.com</a>
+                  </span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
         <div class="right">
           <div class="col1">
             <div class="row1">
-              <div class="desc1">
+              <div class="desc1 wow fadeIn" data-wow-delay="1.4s">
                 <h3>Mobile Reservation System for customers based on Wechat Official Account</h3>
                 <ul>
                   <li>Real-time Reservation</li>
                   <li>Text and Wechat Pre Notification</li>
                   <li>Flexable payment</li>
-                  <li>...</li>
+                  <li>More on the website!</li>
                 </ul>
               </div>
             </div>
 
             <div class="carouselBox">
-              <div class="carousel1 wow fadeIn" data-wow-delay="0.6s">
+              <div class="carousel1 wow fadeIn" data-wow-delay="1.6s">
                 <div class="imgBox">
                   <transition
                     appear
@@ -88,44 +83,6 @@
               </div>
             </div>
           </div>
-          <div class="col2">
-            <div class="carouselBox">
-              <div class="carousel2 wow fadeIn" data-wow-delay="0.8s">
-                <transition
-                  appear
-                  :enter-active-class="getEnterClass2"
-                  :leave-active-class="getLeaveClass2"
-                  mode="out-in"
-                  :duration="800"
-                >
-                  <img :key="currentNum2" :src="images2[currentNum2-1]" alt>
-                </transition>
-              </div>
-              <div class="sideBox">
-                <div class="arrows">
-                  <span @click.stop="handleLeft" class="circle">
-                    <i class="fas fa-chevron-left"></i>
-                  </span>
-                  <span @click.stop="handleRight" class="circle">
-                    <i class="fas fa-chevron-right"></i>
-                  </span>
-                </div>
-                <div class="num">
-                  <span>{{currentNum2}}</span>
-                  <span>in</span>
-                  <span>{{totalNum2}}</span>
-                </div>
-              </div>
-            </div>
-            <div class="desc2">
-              <h3>A clock in/clock out prototype</h3>
-              <ul>
-                <li>Geo fencing</li>
-                <li>Buddy punching eliminate</li>
-                <li>...</li>
-              </ul>
-            </div>
-          </div>
         </div>
 
         <a class="back" @click="handleBack">
@@ -148,16 +105,6 @@ import img1_7 from "../assets/images/joyreserve/7.png";
 import img1_8 from "../assets/images/joyreserve/8.png";
 import img1_9 from "../assets/images/joyreserve/9.png";
 import img1_10 from "../assets/images/joyreserve/10.png";
-import img2_1 from "../assets/images/getUpEarly/1.png";
-import img2_2 from "../assets/images/getUpEarly/2.png";
-import img2_3 from "../assets/images/getUpEarly/3.png";
-import img2_4 from "../assets/images/getUpEarly/4.png";
-import img2_5 from "../assets/images/getUpEarly/5.png";
-import img2_6 from "../assets/images/getUpEarly/6.png";
-import img2_7 from "../assets/images/getUpEarly/7.png";
-import img2_8 from "../assets/images/getUpEarly/8.png";
-import img2_9 from "../assets/images/getUpEarly/9.png";
-import img2_10 from "../assets/images/getUpEarly/10.png";
 
 export default {
   data() {
@@ -176,22 +123,8 @@ export default {
         img1_9,
         img1_10
       ],
-      images2: [
-        img2_1,
-        img2_2,
-        img2_3,
-        img2_4,
-        img2_5,
-        img2_6,
-        img2_7,
-        img2_8,
-        img2_9,
-        img2_10
-      ],
       currentNum2: 1,
-      totalNum2: 10,
       direction1: "up",
-      direction2: "left",
       pageStatus: true
     };
   },
@@ -203,14 +136,6 @@ export default {
     getLeaveClass1() {
       if (this.direction1 === "up") return "animated fadeOutDown";
       return "animated fadeOutUp";
-    },
-    getEnterClass2() {
-      if (this.direction2 === "left") return "animated fadeInRight";
-      return "animated fadeInLeft";
-    },
-    getLeaveClass2() {
-      if (this.direction2 === "left") return "animated fadeOutLeft";
-      return "animated fadeOutRight";
     }
   },
   components: {
@@ -226,16 +151,6 @@ export default {
       this.direction1 = "down";
       if (this.currentNum1 + 1 > this.totalNum1) this.currentNum1 = 1;
       else this.currentNum1 = this.currentNum1 + 1;
-    },
-    handleLeft() {
-      this.direction2 = "left";
-      if (this.currentNum2 - 1 <= 0) this.currentNum2 = this.totalNum1;
-      else this.currentNum2 = this.currentNum2 - 1;
-    },
-    handleRight() {
-      this.direction2 = "right";
-      if (this.currentNum2 + 1 > this.totalNum2) this.currentNum2 = 1;
-      else this.currentNum2 = this.currentNum2 + 1;
     },
     handleBack() {
       this.pageStatus = false;
@@ -266,7 +181,6 @@ export default {
       display: flex;
       align-items: center;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
       background-color: #f0d563;
     }
@@ -292,50 +206,60 @@ export default {
 }
 
 #joyReserve .left {
-  .type {
-    font-family: $rest-font;
-    color: #f7f7f7;
-    font-weight: bold;
-  }
-  img {
-    padding: 10px;
-  }
-  .typer {
-    display: block;
-    z-index: 10;
-    height: 70px;
-
-    .custom.char {
-      color: #383a61;
-      font-size: 40px;
-      font-weight: 900;
-      font-family: $main-font;
+  .content {
+    .type {
+      font-family: $rest-font;
+      color: #f7f7f7;
+      font-weight: bold;
+      font-size: 24px;
     }
-  }
-  .details {
-    color: $works-title-color;
-    font-size: 14px;
-    font-family: $sub-font;
-    font-weight: 400;
+    .typer {
+      display: block;
+      z-index: 10;
+      height: 120px;
+      width: 400px;
 
-    ul {
-      padding: 0;
-      margin: 20px 0;
-      list-style: none;
-      li {
-        padding: 5px 0;
-        font-size: 14px;
+      .custom.char {
+        color: #383a61;
+        font-size: 70px;
+        font-weight: 900;
+        font-family: $main-font;
+      }
+    }
+    .details {
+      color: $works-title-color;
+      font-size: 14px;
+      font-family: $sub-font;
+      font-weight: 400;
 
-        span {
-          display: inline-block;
-          padding-left: 5px;
+      ul {
+        padding: 0;
+        margin: 20px 0;
+        list-style: none;
+        li {
+          padding: 5px 0;
+          font-size: 14px;
+
+          span {
+            display: inline-block;
+            padding-left: 5px;
+
+            &:first-child {
+              color: #cbae37;
+            }
+
+            a {
+              text-decoration: underline;
+              color: #383a61;
+            }
+          }
         }
       }
     }
   }
 }
 #joyReserve .right {
-  flex: 2;
+  flex: 1;
   // background-color: $home-right-bg-color;
   position: relative;
   display: flex;
@@ -427,7 +351,7 @@ export default {
       li {
         padding: 0 0 5px;
         color: #383a61;
-        font-size: 12px;
+        font-size: 14px;
       }
     }
     a {

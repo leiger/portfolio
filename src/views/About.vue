@@ -18,13 +18,15 @@
             <p class="wow fadeIn" data-wow-delay="0.3s">
               Hello! I'm Lei Zhang. I'm a full stack developer who is passionate about design, building great user experience, fighting for simplicity over complexity and constantly learning. After learning something new, I will make notes in Evernote, and sometimes put them into
               <a
-                @click="toBlog"
-              >my blog</a>.
+                target="_blank"
+                href="https://leiger.me"
+              >my blog</a>
             </p>
             <p class="wow fadeIn" data-wow-delay="0.5s">
               I love open source. That's why I spend so much of my time—including evenings and weekends—on
               <a
-                @click="toGithub"
+                target="_blank"
+                href="https://github.com/leiger"
               >GitHub</a>, as an active member of the open source community.
             </p>
             <p class="wow fadeIn" data-wow-delay="0.7s">
@@ -34,9 +36,15 @@
 
             <p class="contact">
               <span class="icons wow slideInLeft" data-wow-delay="0.1s">
-                <i class="far fa-envelope"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-github"></i>
+                <a href="Mailto:leiger2017@outlook.com">
+                  <i class="far fa-envelope"></i>
+                </a>
+                <a target="_blank" href="https://github.com/leiger">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a target="_blank" href="https://www.instagram.com/leiger_/">
+                  <i class="fab fa-instagram"></i>
+                </a>
               </span>
               <span class="phone wow slideInLeft">(+1) 226-977-4697</span>
               <span class="email wow slideInLeft">leiger2017@outlook.com</span>
@@ -181,8 +189,6 @@ export default {
     VueTyper
   },
   methods: {
-    toBlog() {},
-    toGithub() {}
   }
 };
 </script>
@@ -224,7 +230,7 @@ export default {
         position: absolute;
         bottom: 0;
         left: 10%;
-        margin: 0 0 -48px 0;
+        margin: 0 0 -58px 0;
         z-index: 10;
         font-size: 80px;
         .custom.char {
