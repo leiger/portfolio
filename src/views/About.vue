@@ -10,9 +10,8 @@
             :pre-type-delay="1000"
             :type-delay="120"
           ></vue-typer>
-          <transition appear enter-active-class="animated jackInTheBox">
-            <img src="../assets/images/avatar.png" alt>
-          </transition>
+
+          <img class="wow jackInTheBox" data-wow-delay="1s" src="../assets/images/avatar.png" alt>
         </div>
         <div class="leftBottom">
           <div class="desc">
@@ -46,6 +45,10 @@
         </div>
       </div>
       <div class="right">
+        <div class="download">
+          <span>Download my Resume</span>
+          <i class="fas fa-download"></i>
+        </div>
         <div class="rightTop">
           <div class="background">
             <div class="education">
@@ -79,7 +82,7 @@
 
         <div class="rightBottom">
           <div class="skills">
-            <div class="icon" v-for="icon in icons" :key="icon.name">
+            <div class="icon wow fadeInRight" v-for="icon in icons" :key="icon.name">
               <span class="iconfont" :class="icon.name"></span>
               <span class="title">{{icon.title}}</span>
             </div>
@@ -309,6 +312,30 @@ export default {
       linear-gradient(90deg, hsla(0, 0%, 100%, 0.3) 1px, transparent 0);
     background-size: 10px 10px;
 
+    .download {
+      position: absolute;
+      right: 10%;
+      top: 10%;
+      color: #464646;
+      cursor: pointer;
+
+      &:hover {
+        span {
+          opacity: 1;
+        }
+        i {
+          color: #303030;
+        }
+      }
+      span {
+        opacity: 0;
+        font-size: 12px;
+        display: inline-block;
+        padding-right: 10px;
+        transition: all 200ms ease-in-out;
+      }
+    }
+
     .rightTop {
       flex: 3;
 
@@ -317,6 +344,7 @@ export default {
 
         h3 {
           margin: 0 0 20px;
+          display: inline-block;
         }
 
         .education,
@@ -324,14 +352,14 @@ export default {
           margin-bottom: 30px;
           section {
             height: 60px;
-            border-left: 1px solid #303030;
+            border-left: 1px solid #414a6b;
             display: flex;
             align-items: center;
 
             .circle {
               width: 10px;
               height: 10px;
-              background-color: #303030;
+              background-color: #414a6b;
               border-radius: 50%;
               margin: 0 10px 0 -5px;
             }
@@ -368,11 +396,11 @@ export default {
           .iconfont {
             display: block;
             margin-bottom: 5px;
-            color: #303030;
+            color: #464646;
           }
           .title {
             font-size: 12px;
-            color: #999
+            color: #999;
           }
         }
       }

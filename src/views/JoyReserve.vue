@@ -1,11 +1,12 @@
 <template>
   <div id="joyReserve">
-    <div class="container">
-      <transition
-        appear
-        enter-active-class="animated bounceInDown"
-        leave-active-class="animated hinge"
-      >
+    <transition
+      appear
+      enter-active-class="animated zoomInRight"
+      leave-active-class="animated zoomOutUp"
+      @afterLeave="handleLeave"
+    >
+      <div v-if="pageStatus" class="container">
         <div class="left">
           <img
             class="wow bounceIn"
@@ -39,73 +40,209 @@
                 </span>
               </li>
             </ul>
-            <div class="links">
-              <i class="far fa-play-circle"></i>
-            </div>
           </div>
         </div>
-      </transition>
-      <transition
-        appear
-        enter-active-class="animated fadeIn"
-        leave-active-class="animated bounceOutDown"
-      >
+
         <div class="right">
-          <div class="content">
-            <div class="row">
-              <div class="col situation">
-                <span class="step">1. Situation</span>
-                <p>The story happened at</p>
-              </div>
-              <div class="col task">
-                <span class="step">2. Task</span>
-                <!-- <p>The story happened at</p> -->
+          <div class="col1">
+            <div class="row1">
+              <div class="desc1">
+                <h3>Mobile Reservation System for customers based on Wechat Official Account</h3>
+                <ul>
+                  <li>Real-time Reservation</li>
+                  <li>Text and Wechat Pre Notification</li>
+                  <li>Flexable payment</li>
+                  <li>...</li>
+                </ul>
               </div>
             </div>
-            <div class="row">
-              <div class="col action">
-                <span class="step">3. Action</span>
-                <!-- <p>The story happened at</p> -->
-              </div>
-              <div class="col result">
-                <span class="step">4. Result</span>
-                <!-- <p>The story happened at</p> -->
+
+            <div class="carouselBox">
+              <div class="carousel1 wow fadeIn" data-wow-delay="0.6s">
+                <div class="imgBox">
+                  <transition
+                    appear
+                    :enter-active-class="getEnterClass1"
+                    :leave-active-class="getLeaveClass1"
+                    mode="out-in"
+                    :duration="800"
+                  >
+                    <img :key="currentNum1" :src="images1[currentNum1-1]" alt>
+                  </transition>
+                </div>
+                <div class="sideBox">
+                  <div class="arrows">
+                    <span @click.stop="handleUp" class="circle">
+                      <i class="fas fa-chevron-up"></i>
+                    </span>
+                    <span @click.stop="handleDown" class="circle">
+                      <i class="fas fa-chevron-down"></i>
+                    </span>
+                  </div>
+                  <div class="num">
+                    <span>{{currentNum1}}</span>
+                    <span>in</span>
+                    <span>{{totalNum1}}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <div class="col2">
+            <div class="carouselBox">
+              <div class="carousel2 wow fadeIn" data-wow-delay="0.8s">
+                <transition
+                  appear
+                  :enter-active-class="getEnterClass2"
+                  :leave-active-class="getLeaveClass2"
+                  mode="out-in"
+                  :duration="800"
+                >
+                  <img :key="currentNum2" :src="images2[currentNum2-1]" alt>
+                </transition>
+              </div>
+              <div class="sideBox">
+                <div class="arrows">
+                  <span @click.stop="handleLeft" class="circle">
+                    <i class="fas fa-chevron-left"></i>
+                  </span>
+                  <span @click.stop="handleRight" class="circle">
+                    <i class="fas fa-chevron-right"></i>
+                  </span>
+                </div>
+                <div class="num">
+                  <span>{{currentNum2}}</span>
+                  <span>in</span>
+                  <span>{{totalNum2}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="desc2">
+              <h3>A clock in/clock out prototype</h3>
+              <ul>
+                <li>Geo fencing</li>
+                <li>Buddy punching eliminate</li>
+                <li>...</li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </transition>
-    </div>
+
+        <a class="back" @click="handleBack">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
 import { VueTyper } from "vue-typer";
+import img1_1 from "../assets/images/joyreserve/1.png";
+import img1_2 from "../assets/images/joyreserve/2.png";
+import img1_3 from "../assets/images/joyreserve/3.png";
+import img1_4 from "../assets/images/joyreserve/4.png";
+import img1_5 from "../assets/images/joyreserve/5.png";
+import img1_6 from "../assets/images/joyreserve/6.png";
+import img1_7 from "../assets/images/joyreserve/7.png";
+import img1_8 from "../assets/images/joyreserve/8.png";
+import img1_9 from "../assets/images/joyreserve/9.png";
+import img1_10 from "../assets/images/joyreserve/10.png";
+import img2_1 from "../assets/images/getUpEarly/1.png";
+import img2_2 from "../assets/images/getUpEarly/2.png";
+import img2_3 from "../assets/images/getUpEarly/3.png";
+import img2_4 from "../assets/images/getUpEarly/4.png";
+import img2_5 from "../assets/images/getUpEarly/5.png";
+import img2_6 from "../assets/images/getUpEarly/6.png";
+import img2_7 from "../assets/images/getUpEarly/7.png";
+import img2_8 from "../assets/images/getUpEarly/8.png";
+import img2_9 from "../assets/images/getUpEarly/9.png";
+import img2_10 from "../assets/images/getUpEarly/10.png";
+
 export default {
   data() {
     return {
-      steps: [
-        {
-          shortName: "S",
-          name: "Situation"
-        },
-        {
-          shortName: "T",
-          name: "Task"
-        },
-        {
-          shortName: "A",
-          name: "Action"
-        },
-        {
-          shortName: "R",
-          name: "Result"
-        }
-      ]
+      currentNum1: 1,
+      totalNum1: 10,
+      images1: [
+        img1_1,
+        img1_2,
+        img1_3,
+        img1_4,
+        img1_5,
+        img1_6,
+        img1_7,
+        img1_8,
+        img1_9,
+        img1_10
+      ],
+      images2: [
+        img2_1,
+        img2_2,
+        img2_3,
+        img2_4,
+        img2_5,
+        img2_6,
+        img2_7,
+        img2_8,
+        img2_9,
+        img2_10
+      ],
+      currentNum2: 1,
+      totalNum2: 10,
+      direction1: "up",
+      direction2: "left",
+      pageStatus: true
     };
+  },
+  computed: {
+    getEnterClass1() {
+      if (this.direction1 === "up") return "animated fadeInDown";
+      return "animated fadeInUp";
+    },
+    getLeaveClass1() {
+      if (this.direction1 === "up") return "animated fadeOutDown";
+      return "animated fadeOutUp";
+    },
+    getEnterClass2() {
+      if (this.direction2 === "left") return "animated fadeInRight";
+      return "animated fadeInLeft";
+    },
+    getLeaveClass2() {
+      if (this.direction2 === "left") return "animated fadeOutLeft";
+      return "animated fadeOutRight";
+    }
   },
   components: {
     VueTyper
+  },
+  methods: {
+    handleUp() {
+      this.direction1 = "up";
+      if (this.currentNum1 - 1 <= 0) this.currentNum1 = this.totalNum1;
+      else this.currentNum1 = this.currentNum1 - 1;
+    },
+    handleDown() {
+      this.direction1 = "down";
+      if (this.currentNum1 + 1 > this.totalNum1) this.currentNum1 = 1;
+      else this.currentNum1 = this.currentNum1 + 1;
+    },
+    handleLeft() {
+      this.direction2 = "left";
+      if (this.currentNum2 - 1 <= 0) this.currentNum2 = this.totalNum1;
+      else this.currentNum2 = this.currentNum2 - 1;
+    },
+    handleRight() {
+      this.direction2 = "right";
+      if (this.currentNum2 + 1 > this.totalNum2) this.currentNum2 = 1;
+      else this.currentNum2 = this.currentNum2 + 1;
+    },
+    handleBack() {
+      this.pageStatus = false;
+    },
+    handleLeave() {
+      this.$router.push("/works");
+    }
   }
 };
 </script>
@@ -134,12 +271,31 @@ export default {
       background-color: #f0d563;
     }
   }
+
+  .back {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border-left: 2px solid #f7f7f7;
+    border-bottom: 2px solid #f7f7f7;
+    // border-radius: 20px;
+    text-align: center;
+
+    i {
+      color: #f7f7f7;
+      font-size: 18px;
+      line-height: 40px;
+    }
+  }
 }
 
-#joyReserve {
+#joyReserve .left {
   .type {
     font-family: $rest-font;
     color: #f7f7f7;
+    font-weight: bold;
   }
   img {
     padding: 10px;
@@ -168,6 +324,7 @@ export default {
       list-style: none;
       li {
         padding: 5px 0;
+        font-size: 14px;
 
         span {
           display: inline-block;
@@ -178,46 +335,144 @@ export default {
   }
 }
 #joyReserve .right {
-  flex: 3;
+  flex: 2;
   // background-color: $home-right-bg-color;
-  background: #f7f7f7;
-  background-image: linear-gradient(white 2px, transparent 0),
-    linear-gradient(90deg, white 2px, transparent 0),
-    linear-gradient(hsla(0, 0%, 100%, 0.3) 1px, transparent 0),
-    linear-gradient(90deg, hsla(0, 0%, 100%, 0.3) 1px, transparent 0);
-  background-size: 50% 50%, 50% 50%, 15px 15px, 15px 15px;
   position: relative;
   display: flex;
-
-  .content {
+  .col1 {
     flex: 1;
     display: flex;
-    flex-direction: column;
-  }
-}
-
-#joyReserve .row {
-  flex: 1;
-  display: flex;
-  width: 100%;
-
-  .col {
-    flex: 1;
-    width: 100%;
     position: relative;
+    flex-direction: column;
+    background-color: #f0d563;
+    // background-image: linear-gradient(hsla(0, 0%, 100%, 0.3) 1px, transparent 0),
+    //   linear-gradient(90deg, hsla(0, 0%, 100%, 0.3) 1px, transparent 0);
+    // background-size: 10px 10px;
 
-    .step {
-      position: absolute;
-      right: 30px;
-      top: 30px;
-      font-size: 16px;
-      color: #aaa;
+    .row1 {
+      flex: 1;
+    }
+
+    .carouselBox {
+      flex: 2;
+      position: relative;
+      display: flex;
+
+      .carousel1 {
+        display: flex;
+        flex: 1;
+        position: relative;
+        height: 90%;
+        font-size: 0;
+        overflow: hidden;
+
+        .imgBox {
+          height: 100%;
+          position: absolute;
+          left: 10%;
+          top: 0;
+          width: auto;
+
+          img {
+            height: 100%;
+          }
+        }
+      }
     }
   }
-}
+  .col2 {
+    flex: 1;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: #f0d563;
+    // background-image: linear-gradient(hsla(0, 0%, 100%, 0.3) 1px, transparent 0),
+    //   linear-gradient(90deg, hsla(0, 0%, 100%, 0.3) 1px, transparent 0);
+    // background-size: 10px 10px;
 
-.situation {
-  // background-color: #f6c616;
+    .carouselBox {
+      flex: 2;
+      display: flex;
+      position: relative;
+
+      .carousel2 {
+        position: absolute;
+        left: 10%;
+        top: 10%;
+        height: 90%;
+        overflow: hidden;
+
+        img {
+          height: 100%;
+        }
+      }
+    }
+    .desc2 {
+      flex: 1;
+    }
+  }
+
+  .desc1,
+  .desc2 {
+    h3 {
+      margin: 10% 10% 20px;
+      font-size: 16px;
+      color: #cbae37;
+      font-weight: 700;
+    }
+    ul {
+      margin-left: 10%;
+      padding-left: 0;
+
+      li {
+        padding: 0 0 5px;
+        color: #383a61;
+        font-size: 12px;
+      }
+    }
+    a {
+      position: absolute;
+      right: 10%;
+      bottom: 10%;
+    }
+  }
+
+  .sideBox {
+    position: absolute;
+    left: 5%;
+    bottom: 10px;
+    margin-left: -10px;
+
+    .arrows {
+      margin-bottom: 10px;
+      .circle {
+        display: block;
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        background-color: #303030;
+        color: #fff;
+        cursor: pointer;
+        font-size: 0;
+        margin-bottom: 5px;
+
+        i {
+          display: inline-block;
+          font-size: 10px;
+          margin-top: 5px;
+        }
+      }
+    }
+    .num {
+      width: 20px;
+      font-size: 10px;
+      text-align: center;
+      span {
+        display: block;
+      }
+    }
+  }
 }
 </style>
 

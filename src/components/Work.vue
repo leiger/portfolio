@@ -123,7 +123,7 @@ a {
         text-decoration: underline;
       }
       .type {
-        color: #aaa;
+        color: #f7f7f7;
       }
     }
   }

@@ -1,19 +1,14 @@
 <template>
   <div id="vmall">
-    <div class="container">
-      <transition
-        appear
-        enter-active-class="animated bounceInDown"
-        leave-active-class="animated hinge"
-      >
+    <transition
+      appear
+      enter-active-class="animated zoomInDown"
+      leave-active-class="animated zoomOutUp"
+      @afterLeave="handleLeave"
+    >
+      <div v-if="pageStatus" class="container">
         <div class="left">
-          <img
-            class="wow bounceIn"
-            data-wow-delay="1s"
-            width="50"
-            src="../assets/images/vmall.png"
-            alt="Vmall"
-          >
+          <img width="50" src="../assets/images/vmall.png" alt="Vmall">
           <vue-typer
             class="typer"
             :repeat="0"
@@ -25,57 +20,71 @@
           <div class="details">
             <ul>
               <li>
-                Position:
-                <span>Co-founder</span>
+                Type:
+                <span>Personal Open Source Project</span>
               </li>
               <li>
                 Time:
-                <span>Jun 2016 - Sep 2017</span>
+                <span>Oct 2017 - Present</span>
               </li>
               <li>
-                Website:
+                Primary Tech:
+                <span>Vue.js, Express, MongoDB</span>
+              </li>
+              <li>
+                Site (old):
                 <span>
-                  <a>https://joyreserve.com</a>
+                  <a>https://vmall1.leiger.tech</a>
+                </span>
+              </li>
+              <li>
+                Site (new):
+                <span>
+                  <a>https://vmall2.leiger.tech</a>
                 </span>
               </li>
             </ul>
-            <div class="links">
-              <i class="far fa-play-circle"></i>
-            </div>
           </div>
         </div>
-      </transition>
-      <transition
-        appear
-        enter-active-class="animated fadeIn"
-        leave-active-class="animated bounceOutDown"
-      >
+
         <div class="right">
           <div class="content">
-            <div class="row">
-              <div class="col situation">
-                <span class="step">1. Situation</span>
-                <p>The story happened at</p>
+            <div class="row1">
+              <div class="vmall1">
+                <h3>Vmall1</h3>
+                <ul>
+                  <li>Full Stack Project</li>
+                  <li>Responsive Design</li>
+                  <li>Https support</li>
+                  <li>Address Manage</li>
+                  <li>Products sort and filter</li>
+                  <li>...</li>
+                </ul>
               </div>
-              <div class="col task">
-                <span class="step">2. Task</span>
-                <!-- <p>The story happened at</p> -->
+              <div class="vmall2">
+                <h3>Vmall2</h3>
+                <ul>
+                  <li>Based on Vmall1</li>
+                  <li>New Design</li>
+                  <li>Restful Api</li>
+                  <li>Easily change web Style(based on less)</li>
+                  <li>Order Status</li>
+                  <li>Admin Manage System (React)</li>
+                  <li>Order History</li>
+                  <li>More Functions Coming soon!</li>
+                </ul>
               </div>
             </div>
-            <div class="row">
-              <div class="col action">
-                <span class="step">3. Action</span>
-                <!-- <p>The story happened at</p> -->
-              </div>
-              <div class="col result">
-                <span class="step">4. Result</span>
-                <!-- <p>The story happened at</p> -->
-              </div>
+            <div class="row2">
+              <div class="imgBox wow slideInUp" data-wow-delay="1s"></div>
             </div>
           </div>
         </div>
-      </transition>
-    </div>
+        <a class="back" @click="handleBack">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -84,28 +93,19 @@ import { VueTyper } from "vue-typer";
 export default {
   data() {
     return {
-      steps: [
-        {
-          shortName: "S",
-          name: "Situation"
-        },
-        {
-          shortName: "T",
-          name: "Task"
-        },
-        {
-          shortName: "A",
-          name: "Action"
-        },
-        {
-          shortName: "R",
-          name: "Result"
-        }
-      ]
+      pageStatus: true
     };
   },
   components: {
     VueTyper
+  },
+  methods: {
+    handleBack() {
+      this.pageStatus = false;
+    },
+    handleLeave() {
+      this.$router.push("/works");
+    }
   }
 };
 </script>
@@ -122,16 +122,35 @@ export default {
     width: 100%;
     flex: 1;
     display: flex;
+    overflow: hidden;
 
     & > .left {
       position: relative;
       flex: 1;
       display: flex;
-      align-items: center;
+      // align-items: center;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       background-color: #414a6b;
+    }
+  }
+
+  .back {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border-left: 2px solid #f7f7f7;
+    border-bottom: 2px solid #f7f7f7;
+    // border-radius: 20px;
+    text-align: center;
+
+    i {
+      color: #f7f7f7;
+      font-size: 18px;
+      line-height: 40px;
     }
   }
 }
@@ -139,7 +158,8 @@ export default {
 #vmall {
   .type {
     font-family: $rest-font;
-    color: #f7f7f7;
+    color: #f4d242;
+    font-weight: 900;
   }
   img {
     padding: 10px;
@@ -157,7 +177,6 @@ export default {
     }
   }
   .details {
-    color: $works-title-color;
     font-size: 14px;
     font-family: $sub-font;
     font-weight: 400;
@@ -168,24 +187,22 @@ export default {
       list-style: none;
       li {
         padding: 5px 0;
+        color: #ddd;
 
         span {
           display: inline-block;
           padding-left: 5px;
+          color: #f7f7f7;
         }
       }
     }
   }
 }
 #vmall .right {
-  flex: 3;
+  flex: 2;
   // background-color: $home-right-bg-color;
-  background: #f7f7f7;
-  background-image: linear-gradient(white 2px, transparent 0),
-    linear-gradient(90deg, white 2px, transparent 0),
-    linear-gradient(hsla(0, 0%, 100%, 0.3) 1px, transparent 0),
-    linear-gradient(90deg, hsla(0, 0%, 100%, 0.3) 1px, transparent 0);
-  background-size: 50% 50%, 50% 50%, 15px 15px, 15px 15px;
+  background: #414a6b;
+
   position: relative;
   display: flex;
 
@@ -193,31 +210,47 @@ export default {
     flex: 1;
     display: flex;
     flex-direction: column;
-  }
-}
 
-#vmall .row {
-  flex: 1;
-  display: flex;
-  width: 100%;
+    .row1 {
+      flex: 1;
+      display: flex;
+      .vmall1 {
+        flex: 1;
+        padding: 50px;
+      }
+      .vmall2 {
+        flex: 2;
+        padding: 50px;
+      }
+      h3 {
+        color: #606dab;
+        font-size: 16px;
+      }
+      ul {
+        padding: 0;
 
-  .col {
-    flex: 1;
-    width: 100%;
-    position: relative;
-
-    .step {
-      position: absolute;
-      right: 30px;
-      top: 30px;
-      font-size: 16px;
-      color: #aaa;
+        li {
+          color: #f7f7f7;
+          font-size: 14px;
+          padding: 5px 0;
+        }
+      }
+    }
+    .row2 {
+      flex: 1;
+      display: flex;
+      background-color: #414a6b;
+      // background-image: linear-gradient(#ede4e0 1px, transparent 0),
+      //   linear-gradient(90deg, #ede4e0 1px, transparent 0);
+      // background-size: 10px 10px;
+      .imgBox {
+        flex: 1;
+        background-image: url("../assets/images/vmall/vmall_bg.png");
+        background-position: top;
+        background-size: cover;
+      }
     }
   }
-}
-
-.situation {
-  // background-color: #f6c616;
 }
 </style>
 

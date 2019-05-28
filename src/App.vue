@@ -11,7 +11,9 @@
       </transition>
       <MenuSwitch class="menuSwitch"/>
     </div>
-    <footer/>
+    <footer>
+      <span>Designed & Created by leiger</span>
+    </footer>
   </div>
 </template>
 
@@ -41,8 +43,8 @@ export default {
 
 #app {
   padding: 0 $header-height/2;
-  min-width: 100vh;
-  min-height: 100vh;
+  width: 100vw-$header-height;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -75,5 +77,13 @@ export default {
 footer {
   width: 100%;
   height: $header-height/2;
+
+  span {
+    position: absolute;
+    right: $header-height/2;
+    bottom: 10px;
+    font-size: 12px;
+    color: #ddd;
+  }
 }
 </style>
