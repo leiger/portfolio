@@ -2,7 +2,7 @@
   <div id="portfolio">
     <transition
       appear
-      enter-active-class="animated zoomInDown"
+      enter-active-class="animated zoomInRight"
       leave-active-class="animated fadeOut"
       @afterLeave="handleLeave"
     >

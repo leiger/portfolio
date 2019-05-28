@@ -53,10 +53,10 @@
         </div>
       </div>
       <div class="right">
-        <div class="download">
+        <!-- <div class="download">
           <span>Download my Resume</span>
           <i class="fas fa-download"></i>
-        </div>
+        </div> -->
         <div class="rightTop">
           <div class="background">
             <div class="education">
