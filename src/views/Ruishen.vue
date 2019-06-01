@@ -37,7 +37,7 @@
             <div class="desc">
               <div class="detail wow fadeIn" data-wow-delay="1s">
                 <h3>About dou9.</h3>
-                <p>This is my first startup project. At that time, our goal was to sell a local snack food online. <br>And below is our product.</p>
+                <p>This is my first startup project. Our goal was to sell a local snack food online. <br>And below is our product.</p>
                 <p>dou9 was born as our brand character as well as our mascot.</p>
               </div>
             </div>
@@ -200,8 +200,6 @@ export default {
       top: 0;
       width: 40px;
       height: 40px;
-      border-left: 2px solid #f7f7f7;
-      border-bottom: 2px solid #f7f7f7;
       // border-radius: 20px;
       text-align: center;
 

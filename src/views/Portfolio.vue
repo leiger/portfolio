@@ -40,15 +40,45 @@
               </div>
               <div class="details">
                 <h3>Background Square(by css)</h3>
-                <img class="wow fadeInRight" data-wow-delay="0.8s" src="../assets/images/portfolio/bg_texture1.png" alt="bg_texture">
-                <img class="wow fadeInRight" data-wow-delay="0.9s" src="../assets/images/portfolio/bg_texture2.png" alt="bg_texture">
-                <img class="wow fadeInRight" data-wow-delay="1s" src="../assets/images/portfolio/bg_texture3.png" alt="bg_texture">
+                <img
+                  class="wow fadeInRight"
+                  data-wow-delay="0.8s"
+                  src="../assets/images/portfolio/bg_texture1.png"
+                  alt="bg_texture"
+                >
+                <img
+                  class="wow fadeInRight"
+                  data-wow-delay="0.9s"
+                  src="../assets/images/portfolio/bg_texture2.png"
+                  alt="bg_texture"
+                >
+                <img
+                  class="wow fadeInRight"
+                  data-wow-delay="1s"
+                  src="../assets/images/portfolio/bg_texture3.png"
+                  alt="bg_texture"
+                >
               </div>
               <div class="animation">
                 <h3>Animation</h3>
-                <img class="wow fadeInRight" data-wow-delay="1.1s" src="../assets/images/portfolio/animation1.png" alt="animation">
-                <img class="wow fadeInRight" data-wow-delay="1.2s" src="../assets/images/portfolio/animation2.png" alt="animation">
-                <img class="wow fadeInRight" data-wow-delay="1.3s" src="../assets/images/portfolio/animation3.png" alt="animation">
+                <img
+                  class="wow fadeInRight"
+                  data-wow-delay="1.1s"
+                  src="../assets/images/portfolio/animation1.png"
+                  alt="animation"
+                >
+                <img
+                  class="wow fadeInRight"
+                  data-wow-delay="1.2s"
+                  src="../assets/images/portfolio/animation2.png"
+                  alt="animation"
+                >
+                <img
+                  class="wow fadeInRight"
+                  data-wow-delay="1.3s"
+                  src="../assets/images/portfolio/animation3.png"
+                  alt="animation"
+                >
               </div>
             </div>
           </div>
@@ -116,8 +146,6 @@ export default {
       top: 0;
       width: 40px;
       height: 40px;
-      border-left: 2px solid #f7f7f7;
-      border-bottom: 2px solid #f7f7f7;
       // border-radius: 20px;
       text-align: center;
 

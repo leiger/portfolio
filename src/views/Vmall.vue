@@ -144,8 +144,6 @@ export default {
     top: 0;
     width: 40px;
     height: 40px;
-    border-left: 2px solid #f7f7f7;
-    border-bottom: 2px solid #f7f7f7;
     // border-radius: 20px;
     text-align: center;
 

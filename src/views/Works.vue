@@ -32,7 +32,7 @@
       <div class="right">
         <div class="row1">
           <div class="details">
-            <p class="wow fadeInRight" data-wow-delay="1s">
+            <p class="wow fadeInRight" data-wow-delay="0.6s">
               <span>A selection of</span>
               <span>my past 4 works.</span>
             </p>
@@ -57,6 +57,10 @@
         </div>
       </div>
     </div>
+    <router-link to="/about" class="about wow fadeInDown" data-wow-delay="0.5s">
+      About Me
+      <i class="fas fa-long-arrow-alt-right"></i>
+    </router-link>
   </div>
 </template>
 
@@ -140,7 +144,7 @@ export default {
           leave: "animated fadeOutDown"
         },
         {
-          enter: "animated fadeInUp",
+          enter: "animated fadeInDown",
           leave: "animated fadeOutDown"
         },
         {
@@ -191,6 +195,20 @@ export default {
       flex: 1;
       background-color: $works-bg-right-color;
       position: relative;
+    }
+  }
+
+  .about {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 12px;
+    color: $works-title-color;
+    text-decoration: none;
+
+    i {
+      padding-left: 5px;
+      padding-top: 2px;
     }
   }
 }
