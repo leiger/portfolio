@@ -2,7 +2,7 @@
   <div class="menu">
     <div class="menuBox">
       <div class="menuItemsBox">
-        <div class="title wow slideInDown">Menu</div>
+        <div class="title wow slideInDown">{{$t('menu.menu')}}</div>
         <ul>
           <li
             class="icon wow slideInRight"
@@ -13,7 +13,7 @@
             <a
               @click="handleMenuChange(index)"
               :class="{menuItem: item.link === route}"
-            >{{item.name}}</a>
+            >{{getMenuName(item.name)}}</a>
           </li>
         </ul>
       </div>
@@ -43,17 +43,17 @@ export default {
       menuItems: [
         {
           link: "/",
-          name: "Main",
+          name: "main",
           active: true
         },
         {
           link: "/works",
-          name: "Works",
+          name: "works",
           active: false
         },
         {
           link: "/about",
-          name: "About",
+          name: "about",
           active: false
         }
       ]
@@ -65,6 +65,10 @@ export default {
     }
   },
   methods: {
+    getMenuName(name) {
+      let str = "menu." + name;
+      return this.$t(str);
+    },
     handleMenuChange(index) {
       this.$router.push(this.menuItems[index].link);
       setTimeout(() => {

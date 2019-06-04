@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <Header class="header"/>
+    <ChangeLang class="lang"/>
+
     <div class="container">
       <router-view/>
       <transition
@@ -19,6 +21,7 @@
 
 <script>
 import Header from "@/components/Header.vue";
+import ChangeLang from "@/components/ChangeLang.vue";
 import Menu from "@/components/Menu";
 import MenuSwitch from "@/components/MenuSwitch";
 import wow from "wow.js";
@@ -28,7 +31,8 @@ export default {
   components: {
     Header,
     Menu,
-    MenuSwitch
+    MenuSwitch,
+    ChangeLang
   },
   computed: {
     menuState() {
@@ -53,6 +57,11 @@ export default {
   position: relative;
   left: -$header-height/2;
   top: 0;
+}
+.lang {
+  position: absolute;
+  right: $header-height/2;
+  top: $header-height/4-5;
 }
 .container {
   position: relative;
