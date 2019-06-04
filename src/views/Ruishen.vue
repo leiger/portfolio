@@ -12,20 +12,20 @@
             <vue-typer
               class="typer"
               :repeat="0"
-              :text="'Ruishen \nTechonology'"
+              :text="$t('works.ruishen.name')"
               :pre-type-delay="1000"
               :type-delay="120"
             ></vue-typer>
-            <div class="type wow fadeIn" data-wow-delay="0.6s">The birth of dou9.</div>
+            <div class="type wow fadeIn" data-wow-delay="0.6s">{{$t('works.ruishen.desc')}}</div>
             <div class="details wow fadeIn" data-wow-delay="0.8s">
               <ul>
                 <li>
-                  <span>Position:</span>
-                  <span>Co-founder</span>
+                  <span>{{$t('works.ruishen.position')}}:</span>
+                  <span>{{$t('works.ruishen.position_desc')}}</span>
                 </li>
                 <li>
-                  <span>Time:</span>
-                  <span>Sep 2015 - May 2016</span>
+                  <span>{{$t('works.ruishen.time')}}:</span>
+                  <span>{{$t('works.ruishen.time_desc')}}</span>
                 </li>
               </ul>
             </div>
@@ -36,9 +36,10 @@
           <div class="content">
             <div class="desc">
               <div class="detail wow fadeIn" data-wow-delay="1s">
-                <h3>About dou9.</h3>
-                <p>This is my first startup project. Our goal was to sell a local snack food online. <br>And below is our product.</p>
-                <p>dou9 was born as our brand character as well as our mascot.</p>
+                <h3>{{$t('works.ruishen.details.title')}}</h3>
+                <ul>
+                  <li v-for="item in $t('works.ruishen.details.desc')">{{item}}</li>
+                </ul>
               </div>
             </div>
             <div class="carouselBox">
@@ -278,7 +279,10 @@ export default {
         h3 {
           color: #cba411;
         }
-        p {
+        ul {
+          padding-left: 0;
+        }
+        li {
           color: #f7f7f7;
         }
       }

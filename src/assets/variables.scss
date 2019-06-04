@@ -1,9 +1,9 @@
 // personal variables
-@import "https://fonts.googleapis.com/css?family=Josefin+Sans|Nunito|Permanent+Marker&display=swap";
+@import "https://fonts.googleapis.com/css?family=Josefin+Sans|Nunito|ZCOOL+KuaiLe|Permanent+Marker&display=swap";
 
 body {
   margin: 0;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Nunito', 'ZCOOL KuaiLe', sans-serif;
 }
 
 a,
@@ -13,9 +13,15 @@ button {
 }
 
 // font
-$main-font: 'Permanent Marker', cursive;
-$sub-font: 'Nunito', sans-serif;
-$rest-font: 'Josefin Sans', sans-serif;
+$main-font: 'Permanent Marker',
+'ZCOOL KuaiLe',
+cursive;
+$sub-font: 'Nunito',
+'ZCOOL KuaiLe',
+sans-serif;
+$rest-font: 'Josefin Sans',
+'ZCOOL KuaiLe',
+sans-serif;
 
 $main-font-color: #f7f7f7;
 

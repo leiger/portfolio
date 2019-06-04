@@ -12,23 +12,23 @@
             <vue-typer
               class="typer"
               :repeat="0"
-              text="JoyReserve"
+              :text="$t('works.joyReserve.name')"
               :pre-type-delay="1000"
               :type-delay="120"
             ></vue-typer>
-            <div class="type wow fadeIn" data-wow-delay="1.0s">A Convenient Reservation System.</div>
+            <div class="type wow fadeIn" data-wow-delay="1.0s">{{$t('works.joyReserve.desc')}}</div>
             <div class="details wow fadeIn" data-wow-delay="1.2s">
               <ul>
                 <li>
-                  <span>Position:</span>
-                  <span>Co-founder</span>
+                  <span>{{$t('works.joyReserve.position')}}:</span>
+                  <span>{{$t('works.joyReserve.position_desc')}}</span>
                 </li>
                 <li>
-                  <span>Time:</span>
+                  <span>{{$t('works.joyReserve.time')}}:</span>
                   <span>Jun 2016 - Sep 2017</span>
                 </li>
                 <li>
-                  <span>Website:</span>
+                  <span>{{$t('works.joyReserve.website')}}:</span>
                   <span>
                     <a target="_blank" href="https://www.joyreserve.com">https://www.joyreserve.com</a>
                   </span>
@@ -42,12 +42,9 @@
           <div class="col1">
             <div class="row1">
               <div class="desc1 wow fadeIn" data-wow-delay="1.4s">
-                <h3>Mobile Reservation System for customers based on Wechat Official Account</h3>
+                <h3>{{$t('works.joyReserve.details.title')}}</h3>
                 <ul>
-                  <li>Real-time Reservation</li>
-                  <li>Text and Wechat Pre Notification</li>
-                  <li>Flexable payment</li>
-                  <li>More on the website!</li>
+                  <li v-for="item in $t('works.joyReserve.details.desc')" :key="item">{{item}}</li>
                 </ul>
               </div>
             </div>

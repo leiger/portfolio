@@ -13,33 +13,33 @@
             <vue-typer
               class="typer"
               :repeat="0"
-              text="Vmall"
+              :text="$t('works.vmall.name')"
               :pre-type-delay="1000"
               :type-delay="120"
             ></vue-typer>
-            <div class="type wow fadeIn" data-wow-delay="0.6s">Open Source, New E-commerce site</div>
+            <div class="type wow fadeIn" data-wow-delay="0.6s">{{$t('works.vmall.desc')}}</div>
             <div class="details wow fadeIn" data-wow-delay="0.8s">
               <ul>
                 <li>
-                  Type:
-                  <span>Personal Project</span>
+                  {{$t('works.vmall.type')}}:
+                  <span>{{$t('works.vmall.type_desc')}}</span>
                 </li>
                 <li>
-                  Time:
-                  <span>Oct 2017 - Present</span>
+                  {{$t('works.vmall.time')}}:
+                  <span>{{$t('works.vmall.time_desc')}}</span>
                 </li>
                 <li>
-                  Primary Tech:
+                  {{$t('works.vmall.primary_tech')}}:
                   <span>Vue.js, Express, MongoDB</span>
                 </li>
                 <li>
-                  Site (new):
+                  {{$t('works.vmall.site_new')}}:
                   <span>
                     <a target="_blank" href="https://vmall.leiger.tech">https://vmall.leiger.tech</a>
                   </span>
                 </li>
                 <li>
-                  Site (old):
+                  {{$t('works.vmall.site_old')}}:
                   <span>
                     <a target="_blank" href="https://vmall1.leiger.tech">https://vmall1.leiger.tech</a>
                   </span>
@@ -55,25 +55,13 @@
               <div class="vmall1 wow fadeIn" data-wow-delay="1s">
                 <h3>Vmall1</h3>
                 <ul>
-                  <li>Full Stack Project</li>
-                  <li>Responsive Design</li>
-                  <li>Https support</li>
-                  <li>Address Manage</li>
-                  <li>Products sort and filter</li>
-                  <li>...</li>
+                  <li v-for="item in $t('works.vmall.vmall1')" :key="item">{{item}}</li>
                 </ul>
               </div>
               <div class="vmall2 wow fadeIn" data-wow-delay="1.2s">
                 <h3>Vmall2</h3>
                 <ul>
-                  <li>Based on Vmall1</li>
-                  <li>New Design</li>
-                  <li>Restful Api</li>
-                  <li>Easily change web Style(based on less)</li>
-                  <li>Order Status</li>
-                  <li>Admin Manage System (React)</li>
-                  <li>Order History</li>
-                  <li>More Functions Coming soon!</li>
+                  <li v-for="item in $t('works.vmall.vmall2')" :key="item">{{item}}</li>
                 </ul>
               </div>
             </div>
